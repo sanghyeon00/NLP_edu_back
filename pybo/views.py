@@ -163,7 +163,9 @@ def get_gemini_response(user_question, context_question, context_answer):
 
 @api_view(['POST'])
 def test_api(request):
+    print(1)
     user_question = request.data.get('prompt')
+    print(2)
     start_time = time.time()
     print(f"사용자 질문 : {user_question}")
     # 유사한 질문 검색
