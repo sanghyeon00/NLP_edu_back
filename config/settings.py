@@ -55,7 +55,7 @@ MIDDLEWARE = [
 # React와 통신을 허용할 도메인
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React 개발 서버
-    " https://3.38.34.194:3000",    
+    "https://3.38.34.194:3000",    
 ]
 CORS_ALLOW_CREDENTIALS = True
 
