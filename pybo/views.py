@@ -188,7 +188,7 @@ def test_api(request):
     execution_time = end_time - start_time
 
     print(f"\n실행 시간: {execution_time:.2f} 초")
-    tmp =[str(context_question), str(context_answer), str(score), str(formatted_response), str(execution_time)]
+    tmp =[str("유사한 질문 : ")+str(context_question), str("해당 답변 : ")+str(context_answer), str("유사도 점수 : ")+str(score), str("Gemini 답변 : ")+str(formatted_response), str("걸린 시간 : ")+str(execution_time)]
     rtr = {
     "responses": tmp}
     return Response(rtr)
