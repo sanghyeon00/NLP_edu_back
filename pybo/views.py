@@ -189,7 +189,6 @@ def test_api(request):
 
     print(f"\n실행 시간: {execution_time:.2f} 초")
     tmp =[str(context_question), str(context_answer), str(score), str(formatted_response), str(execution_time)]
-    print(rtr)
     rtr = {
     "responses": tmp}
     return Response(rtr)
