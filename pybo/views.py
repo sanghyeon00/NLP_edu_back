@@ -140,22 +140,24 @@ def find_most_similar_question(user_question):
 # 4. Gemini API와 연동하여 답변 생성
 def get_gemini_response(user_question, context_question, context_answer):
     prompt = f"""
-    The user has asked the following question:
+    사용자가 다음과 같은 질문을 했습니다:
     "{user_question}"
 
-    The most similar question from the document is:
+    문서에서 가장 유사한 질문은:
     "{context_question}"
 
-    The corresponding answer from the document is:
+    문서에서 해당 질문에 대한 답변은:
     "{context_answer}"
 
-    Based on this information, generate a detailed and user-friendly answer.
+    위의 정보를 바탕으로, 한국어로 요약된 답변을 작성해 주세요. 
+    가능한 한 명확하고 사용자에게 친숙한 방식으로 작성해 주세요.
     """
+
     response = model.generate_content(
         prompt,
         generation_config=genai.types.GenerationConfig(
             candidate_count=1,
-            temperature=0.7
+            temperature=0.7,  # 답변이 너무 창의적이지 않도록 설정
         )
     )
     return response.candidates[0].content.parts[0].text
